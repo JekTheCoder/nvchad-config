@@ -32,5 +32,15 @@ local plugings = {
       require "custom.configs.lspconfig"
     end,
   },
+	{
+		"jekthecoder/codeconjurer",
+		dependencies = {
+			"nvim-telescope/telescope.nvim"
+		},
+		dir = "~/projects/lua/codeconjurer",
+		config = function()
+			require "codeconjurer".setup()
+		end
+	}
 }
 return plugings
