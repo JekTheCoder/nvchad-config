@@ -6,6 +6,7 @@ local lint = null_ls.builtins.diagnostics
 local sources = {
   fmt.prettier,
   fmt.stylua,
+	fmt.rustfmt,
 
   lint.shellcheck
 }

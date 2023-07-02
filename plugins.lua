@@ -32,15 +32,25 @@ local plugings = {
       require "custom.configs.lspconfig"
     end,
   },
-	{
-		"jekthecoder/codeconjurer",
-		dependencies = {
-			"nvim-telescope/telescope.nvim"
-		},
-		dir = "~/projects/lua/codeconjurer",
-		config = function()
-			require "codeconjurer".setup()
-		end
-	}
+  {
+    "jekthecoder/codeconjurer",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    dir = "~/projects/lua/codeconjurer",
+    config = function()
+      require("codeconjurer").setup()
+    end,
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+			require "custom.configs.rust-tools"
+    end,
+  },
 }
 return plugings
