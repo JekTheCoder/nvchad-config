@@ -47,9 +47,10 @@ local plugings = {
     ft = "rust",
     dependencies = {
       "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
     },
     config = function()
-			require "custom.configs.rust-tools"
+      require "custom.configs.rust-tools"
     end,
   },
 }
