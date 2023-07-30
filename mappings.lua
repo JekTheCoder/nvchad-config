@@ -3,7 +3,11 @@ local M = {}
 -- Disabled mappings
 M.disabled = {
   n = {
+    ["p"] = "", -- Disable Nvchad paste and yank into clipboard
     ["<leader>x"] = "", -- Default Nvchad mapping for closing current buffer
+  },
+  v = {
+    ["p"] = "", -- Disable Nvchad paste and yank into clipboard
   },
 }
 
