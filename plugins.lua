@@ -53,5 +53,18 @@ local plugings = {
       require "custom.configs.rust-tools"
     end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        file_ignore_patterns = {
+          ".git",
+          "node_modules",
+          "target", --rust
+        },
+      },
+    },
+  },
 }
+
 return plugings
