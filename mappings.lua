@@ -9,6 +9,9 @@ M.disabled = {
   v = {
     ["p"] = "", -- Disable Nvchad paste and yank into clipboard
   },
+  x = {
+    ["p"] = "", -- Disable Nvchad paste and yank into clipboard
+  },
 }
 
 -- Custom mappings
@@ -42,6 +45,35 @@ M.tabufline = {
       end,
       "Close all the tabs and its buffers",
     },
+  },
+}
+
+--
+-- Codeium
+
+M.codeium = {
+  i = {
+    ["<C-g>"] = {
+      function()
+        return vim.fn["codeium#Accept"]()
+      end,
+      "Accept the current completion",
+      opts = { expr = true },
+    },
+    ["<C-x>"] = {
+      function()
+        return vim.fn["codeium#Clear"]()
+      end,
+      "Clear the current completion",
+      opts = { expr = true },
+    },
+		["<C-a>"] = {
+			function()
+				return vim.fn["codeium#Complete"]()
+			end,
+			"Undo the current completion",
+			opts = { expr = true },
+		}
   },
 }
 
