@@ -31,3 +31,9 @@ lspconfig.emmet_ls.setup({
       },
     }
 })
+
+lspconfig.cssls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "css", "scss", "less" },
+})
