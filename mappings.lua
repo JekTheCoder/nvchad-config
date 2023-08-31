@@ -77,4 +77,13 @@ M.codeium = {
   },
 }
 
+M.trouble = {
+	n = {
+		["<leader>tt"] = {
+			"<cmd> TroubleToggle <CR>",
+			"Toggle Trouble bar",
+		},
+	},
+}
+
 return M
