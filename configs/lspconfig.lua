@@ -37,3 +37,9 @@ lspconfig.cssls.setup({
 	capabilities = capabilities,
 	filetypes = { "css", "scss", "less" },
 })
+
+lspconfig.svelte.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "svelte" },
+})
