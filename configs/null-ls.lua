@@ -4,7 +4,9 @@ local fmt = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
-  fmt.prettier,
+  fmt.prettier.with {
+		extra_filetypes = { "svelte" },
+  },
   fmt.stylua,
   null_ls.builtins.formatting.rustfmt.with {
     extra_args = function(params)
