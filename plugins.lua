@@ -69,6 +69,7 @@ local plugings = {
         -- web dev
         "html",
         "css",
+				"scss",
         "javascript",
         "typescript",
         "tsx",
