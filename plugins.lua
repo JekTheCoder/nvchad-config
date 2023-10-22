@@ -75,23 +75,26 @@ local plugings = {
         -- web dev
         "html",
         "css",
-				"scss",
+        "scss",
         "javascript",
         "typescript",
         "tsx",
         "json",
         "svelte",
-
       },
     },
   },
 
-	{
-		"mfussenegger/nvim-dap",
-	},
-	{
-		"mfussenegger/nvim-dap-ui",
-	}
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap" },
+		config = function ()
+			require("dapui").setup()
+		end
+  },
 }
 
 return plugings

@@ -23,7 +23,7 @@ local port = 3002
  end
 -- ]]
 
-local create_codelldb_adapter = function(codelldb_path, lib_lldb_path, port)
+local function create_codelldb_adapter(codelldb_path, lib_lldb_path, port)
   return {
     type = "server",
     port = port,
@@ -34,6 +34,6 @@ local create_codelldb_adapter = function(codelldb_path, lib_lldb_path, port)
   }
 end
 
-M.adapter = create_codelldb_adapter(codelldb_path, lib_lldb_path, port)
+M.adapter = create_codelldb_adapter(codelldb_path, lib_lldb_path, port);
 
 return M

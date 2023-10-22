@@ -94,9 +94,7 @@ M.dap = {
 		},
 		["<leader>dus"] = {
 			function ()
-				local widgets = require("dap.ui.widgets");
-				local sidebar = widgets.sidebar(widgets.scopes);
-				sidebar.open();
+				require("dapui").toggle();
 			end,
 			"Open debuggin sidebar",
 		}
