@@ -6,6 +6,7 @@ local plugings = {
     end,
     lazy = false,
   },
+
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -20,6 +21,7 @@ local plugings = {
       require "custom.configs.lspconfig"
     end,
   },
+
   {
     "jekthecoder/codeconjurer",
     dependencies = {
@@ -30,6 +32,7 @@ local plugings = {
       require("codeconjurer").setup()
     end,
   },
+
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
@@ -41,6 +44,7 @@ local plugings = {
       require "custom.configs.rust-tools"
     end,
   },
+
   {
     "nvim-telescope/telescope.nvim",
     opts = {
@@ -53,11 +57,13 @@ local plugings = {
       },
     },
   },
+
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -79,6 +85,13 @@ local plugings = {
       },
     },
   },
+
+	{
+		"mfussenegger/nvim-dap",
+	},
+	{
+		"mfussenegger/nvim-dap-ui",
+	}
 }
 
 return plugings

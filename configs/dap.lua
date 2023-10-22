@@ -1,5 +1,4 @@
-local rust_tools = require "rust-tools"
-local plugings_lsp = require "plugins.configs.lspconfig"
+local M = {}
 
 local mason_register = require "mason-registry"
 local codelldb = mason_register.get_package "codelldb"
@@ -35,13 +34,6 @@ local create_codelldb_adapter = function(codelldb_path, lib_lldb_path, port)
   }
 end
 
-rust_tools.setup {
-  server = {
-    on_attach = plugings_lsp.on_attach,
-    capabilities = plugings_lsp.capabilities,
-  },
+M.adapter = create_codelldb_adapter(codelldb_path, lib_lldb_path, port)
 
-  dap = {
-    adapter = create_codelldb_adapter(codelldb_path, lib_lldb_path, port),
-  },
-}
+return M

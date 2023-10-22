@@ -15,7 +15,7 @@ M.disabled = {
 }
 
 -- Custom mappings
-M.abc = {
+M.general = {
   n = {
     ["<leader>y"] = { '"+y', "yank to clipboard" },
     ["<leader>tn"] = { "<cmd> tabNext <CR>", "Next Tab" },
@@ -29,19 +29,19 @@ M.tabufline = {
   n = {
     ["<leader>xc"] = {
       function()
-        require("nvchad_ui.tabufline").close_buffer()
+        require("nvchad.tabufline").close_buffer()
       end,
       "Close current buffer",
     },
     ["<leader>xo"] = {
       function()
-        require("nvchad_ui.tabufline").closeOtherBufs()
+        require("nvchad.tabufline").closeOtherBufs()
       end,
       "Close all the others buffers",
     },
     ["<leader>xx"] = {
       function()
-        require("nvchad_ui.tabufline").closeAllBufs()
+        require("nvchad.tabufline").closeAllBufs()
       end,
       "Close all the tabs and its buffers",
     },
@@ -84,6 +84,23 @@ M.trouble = {
 			"Toggle Trouble bar",
 		},
 	},
+}
+
+M.dap = {
+	n = {
+		["<leader>db"] = {
+			"<cmd> DapToggleBreakpoint <CR>",
+			"Toggle Breakpoint",
+		},
+		["<leader>dus"] = {
+			function ()
+				local widgets = require("dap.ui.widgets");
+				local sidebar = widgets.sidebar(widgets.scopes);
+				sidebar.open();
+			end,
+			"Open debuggin sidebar",
+		}
+	}
 }
 
 return M
