@@ -60,6 +60,7 @@ lspconfig.svelte.setup {
 lspconfig.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+	root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
   filetypes = {
     "html",
     "astro",
