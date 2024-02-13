@@ -12,9 +12,12 @@ lspconfig.tsserver.setup {
 }
 
 lspconfig.angularls.setup {
-  on_attach = on_attach,
+  on_attach = function (client, bufnr)
+  	on_attach(client, bufnr)
+		client.server_capabilities.renderingProvider = false
+  end,
   capabilities = capabilities,
-  filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "html" },
   root_dir = lspconfig.util.root_pattern "angular.json",
 }
 
