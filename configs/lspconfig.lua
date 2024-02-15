@@ -12,18 +12,16 @@ lspconfig.tsserver.setup {
 }
 
 lspconfig.angularls.setup {
-  on_attach = function (client, bufnr)
-  	on_attach(client, bufnr)
-		client.server_capabilities.renderingProvider = false
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    client.server_capabilities.renderingProvider = false
   end,
   capabilities = capabilities,
   filetypes = { "typescript", "html" },
   root_dir = lspconfig.util.root_pattern "angular.json",
 }
 
-lspconfig.emmet_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
+lspconfig.emmet_language_server.setup {
   filetypes = {
     "css",
     "eruby",
@@ -33,18 +31,32 @@ lspconfig.emmet_ls.setup {
     "less",
     "sass",
     "scss",
-    "svelte",
     "pug",
     "typescriptreact",
-    "vue",
   },
+  -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+  -- **Note:** only the options listed in the table are supported.
   init_options = {
-    html = {
-      options = {
-        -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-        ["bem.enabled"] = true,
-      },
-    },
+    ---@type table<string, string>
+    includeLanguages = {},
+    --- @type string[]
+    excludeLanguages = {},
+    --- @type string[]
+    extensionsPath = {},
+    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+    preferences = {},
+    --- @type boolean Defaults to `true`
+    showAbbreviationSuggestions = true,
+    --- @type "always" | "never" Defaults to `"always"`
+    showExpandedAbbreviation = "always",
+    --- @type boolean Defaults to `false`
+    showSuggestionsAsSnippets = false,
+    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+    syntaxProfiles = {
+			html = "xhtml"
+		},
+    --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+    variables = {},
   },
 }
 
@@ -63,7 +75,7 @@ lspconfig.svelte.setup {
 lspconfig.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-	root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
+  root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
   filetypes = {
     "html",
     "astro",
