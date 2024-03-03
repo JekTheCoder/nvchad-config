@@ -9,11 +9,11 @@ lspconfig.tsserver.setup {
     on_attach(client, bufnr)
 
     for _, lspclient in pairs(vim.lsp.buf_get_clients(0)) do
-			if lspclient.name == "angularls" then
-				print(lspclient.name)
-				client.server_capabilities.renameProvider = false
-				break
-			end
+      if lspclient.name == "angularls" then
+        print(lspclient.name)
+        client.server_capabilities.renameProvider = false
+        break
+      end
     end
   end,
   capabilities = capabilities,
@@ -84,7 +84,12 @@ lspconfig.svelte.setup {
 lspconfig.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
+  root_dir = lspconfig.util.root_pattern(
+    "tailwind.config.js",
+    "tailwind.config.mjs",
+    "tailwind.config.cjs",
+    "tailwind.config.ts"
+  ),
   filetypes = {
     "html",
     "astro",
@@ -115,4 +120,9 @@ lspconfig.tailwindcss.setup {
       validate = true,
     },
   },
+}
+
+lspconfig.astro.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
