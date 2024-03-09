@@ -108,7 +108,7 @@ lspconfig.tailwindcss.setup {
   },
   settings = {
     tailwindCSS = {
-      classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+      classAttributes = { "class", "className", "class:list", "classList", "ngClass", ".*Class" },
       lint = {
         cssConflict = "warning",
         invalidApply = "error",
