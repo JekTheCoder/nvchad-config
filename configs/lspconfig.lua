@@ -5,17 +5,7 @@ local capabilities = plugings_lsp.capabilities
 local lspconfig = require "lspconfig"
 
 lspconfig.tsserver.setup {
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-
-    for _, lspclient in pairs(vim.lsp.buf_get_clients(0)) do
-      if lspclient.name == "angularls" then
-        print(lspclient.name)
-        client.server_capabilities.renameProvider = false
-        break
-      end
-    end
-  end,
+  on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json", "tsconfig.json", "jsconfig.json"),
@@ -24,6 +14,7 @@ lspconfig.tsserver.setup {
 lspconfig.angularls.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
+    client.server_capabilities.renameProvider = false
   end,
   capabilities = capabilities,
   filetypes = { "typescript", "html" },
@@ -42,7 +33,7 @@ lspconfig.emmet_language_server.setup {
     "scss",
     "pug",
     "typescriptreact",
-		"astro",
+    "astro",
   },
   -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
   -- **Note:** only the options listed in the table are supported.
