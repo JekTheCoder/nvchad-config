@@ -90,10 +90,10 @@ local plugings = {
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap" },
-		config = function ()
-			require("dapui").setup()
-		end
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    config = function()
+      require("dapui").setup()
+    end,
   },
 }
 
