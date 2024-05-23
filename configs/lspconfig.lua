@@ -7,7 +7,7 @@ local lspconfig = require "lspconfig"
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
   root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json", "tsconfig.json", "jsconfig.json"),
 }
 
